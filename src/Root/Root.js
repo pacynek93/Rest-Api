@@ -1,15 +1,13 @@
 import React from 'react';
+// import { Provider } from 'react-redux';
 import ShowData from '../ShowData/ShowData';
-import DeleteUser from '../DeleteUser/DeleteUser';
-import { Provider } from 'react-redux';
 
 const Root = () => (
-  <Provider store={store}>
-    <>
-      <ShowData />
-      <DeleteUser />
-    </>
-  </Provider>
+
+  <>
+    <ShowData />
+  </>
+
 );
 
 export default Root;
