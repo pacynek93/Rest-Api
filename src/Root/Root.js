@@ -3,7 +3,6 @@ import React from 'react';
 import ShowData from '../ShowData/ShowData';
 
 const Root = () => (
-
   <>
     <ShowData />
   </>
