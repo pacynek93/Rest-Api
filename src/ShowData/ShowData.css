@@ -1,4 +1,14 @@
-.blocks {
-    display: flex;
-    border: 1px solid red;
+body {
+  box-sizing: border-box;
 }
+
+.blocks {
+  display: flex;
+  border: 1px solid black;
+  height: auto;
+  width: auto;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=ShowData.css.map */

@@ -1,11 +1,20 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
-import ShowData from '../ShowData/ShowData';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import Home from '../Router/Home';
+import EditUser from '../Router/EditUser';
 
 const Root = () => (
-  <>
-    <ShowData />
-  </>
+  <BrowserRouter>
+    <div className='/'>
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+      </ul>
+      <Route exact path='/' component={Home} />
+      <Route path='/user/:id' component={EditUser} />
+    </div>
+  </BrowserRouter>
 
 );
 
