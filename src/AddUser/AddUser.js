@@ -1,35 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import { url, config } from '../Token/Token';
 
 const AddUser = () => {
 
-  const {
-    id,
-  } = useParams();
+  const [userData, setUserData] = useState([]);
+
+
+  const onTodoChange = (e) => {
+    /* eslint-disable */
+    const name = e.target.name;
+    const value = e.target.value;
+    /* eslint-enable */
+    setUserData(prevState => ({
+        ...prevState,
+        [name]: value,
+      }
+    ));
+  };
 
   const postSingleUser = (item) => {
-    axios.post(`${url}/${id}`, { ...item }, config)
-      .then(() => {
-        console.log(item);
+    axios.post(`${url}`, { ...item }, config)
+      .then(res => {
+        console.log(res.data.data)
       });
   };
+
+
+
+  console.log(userData);
 
   return (
     <div>
       <div className='addUser'>
-        <input placeholder='Id' />
-        <input placeholder='Email' />
-        <select placeholder='Gender'>
-          <option value='male'>Male</option>
-          <option value='female'>Female</option>
-        </select>
-        <select placeholder='Status'>
-          <option value='active'>Active</option>
-          <option value='inactive'>Inactive</option>
-        </select>
-        <button type='button' onClick={() => postSingleUser()}>Add</button>
+        <input name='name' placeholder='Name' value={userData.name} onChange={onTodoChange}/>
+        <input name='email' placeholder='Email' value={userData.email} onChange={onTodoChange}/>
+        <input name='gender' placeholder='Gender' value={userData.gender} onChange={onTodoChange}/>
+        <input name='status' placeholder='Status' value={userData.status} onChange={onTodoChange}/>
+        <button type='button' onClick={() => postSingleUser(userData)}>Add</button>
       </div>
     </div>
   );
