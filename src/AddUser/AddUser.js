@@ -33,10 +33,10 @@ const AddUser = () => {
   return (
     <div>
       <div className='addUser'>
-        <input name='name' placeholder='Name' value={userData.name} onChange={onTodoChange}/>
-        <input name='email' placeholder='Email' value={userData.email} onChange={onTodoChange}/>
-        <input name='gender' placeholder='Gender' value={userData.gender} onChange={onTodoChange}/>
-        <input name='status' placeholder='Status' value={userData.status} onChange={onTodoChange}/>
+        <input name='name' placeholder='Name'  defaultValue={userData.name}  onChange={onTodoChange}/>
+        <input name='email' placeholder='Email' defaultValue={userData.email} onChange={onTodoChange}/>
+        <input name='gender' placeholder='Gender' defaultValue={userData.gender} onChange={onTodoChange}/>
+        <input name='status' placeholder='Status' defaultValue={userData.status} onChange={onTodoChange}/>
         <button type='button' onClick={() => postSingleUser(userData)}>Add</button>
       </div>
     </div>

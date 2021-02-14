@@ -45,17 +45,17 @@ const EditUser = () => {
       <div className='/'>
         <div className='editUser'>
           <div>User {id} </div>
-          <input name='name' value={userData.name}
+          <input name='name' defaultValue={userData.name}
                  onChange={onTodoChange}
                  className='name' />
           <div>Email</div>
-          <input type='email' name='email' value={userData.email} onChange={onTodoChange}
+          <input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
                  className='email' />
           <div>Gender</div>
-          <input name='gender' value={userData.gender} onChange={onTodoChange}
+          <input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
                  className='gender' />
           <div>Status</div>
-          <input name='status' value={userData.status} onChange={onTodoChange}
+          <input name='status' defaultValue={userData.status} onChange={onTodoChange}
                  className='status' />
           <button onClick={() => editSingleUser(userData)} type='button'>Edit</button>
         </div>
