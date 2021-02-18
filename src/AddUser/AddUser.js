@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { url, config } from '../Token/Token';
+import './AddUser.scss'
 
 const AddUser = () => {
 
@@ -28,16 +29,21 @@ const AddUser = () => {
 
 
 
+
   console.log(userData);
 
   return (
     <div>
       <div className='addUser'>
-        <input name='name' placeholder='Name'  defaultValue={userData.name}  onChange={onTodoChange}/>
-        <input name='email' placeholder='Email' defaultValue={userData.email} onChange={onTodoChange}/>
-        <input name='gender' placeholder='Gender' defaultValue={userData.gender} onChange={onTodoChange}/>
-        <input name='status' placeholder='Status' defaultValue={userData.status} onChange={onTodoChange}/>
-        <button type='button' onClick={() => postSingleUser(userData)}>Add</button>
+        <div>Name</div>
+        <input name='name' placeholder='Name' className='addUserInput' defaultValue={userData.name}  onChange={onTodoChange}/>
+        <div>Email</div>
+        <input name='email' placeholder='Email' className='addUserInput' defaultValue={userData.email} onChange={onTodoChange}/>
+        <div>Gender</div>
+        <input name='gender' placeholder='Gender' className='addUserInput' defaultValue={userData.gender} onChange={onTodoChange}/>
+        <div>Status</div>
+        <input name='status' placeholder='Status' className='addUserInput' defaultValue={userData.status} onChange={onTodoChange}/>
+        <button type='button' className='inputButtonAdd' onClick={() => postSingleUser(userData)}>ADD</button>
       </div>
     </div>
   );

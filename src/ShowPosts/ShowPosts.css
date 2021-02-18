@@ -1,0 +1,10 @@
+.blocks {
+  display: flex;
+  border: 1px solid black;
+  height: auto;
+  width: auto;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=ShowPosts.css.map */

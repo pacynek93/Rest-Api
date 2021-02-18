@@ -1,13 +1,17 @@
+body {
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
 .navBar {
   background: #000;
   padding: 20px;
   .navBarItem {
-    color: #fff;
+    color: #ffa500;
     padding: 10px;
     text-decoration: none;
     &:hover {
-      color: blue;
-      background: white;
+      background: darkviolet;
+      cursor: pointer;
+      border-radius: 5%;
     }
   }
 }

@@ -1,0 +1,33 @@
+.editUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40%;
+  margin-right: 40%;
+  padding-top: 100px;
+}
+.editUser .editUserInput {
+  height: 100%;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 5%;
+}
+.editUser .inputButton {
+  margin-top: 20px;
+  color: #ffa500;
+  background: #000;
+  border: 2px solid #000;
+  font-family: sans-serif;
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 10%;
+}
+.editUser .inputButton:hover {
+  background: darkviolet;
+  border: 2px solid darkviolet;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=EditUser.css.map */

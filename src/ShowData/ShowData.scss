@@ -1,13 +1,24 @@
 body {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.blocks {
-    display: flex;
-    border: 1px solid black;
-    height: auto;
-    width: auto;
-    font-family: sans-serif;
-    line-height: 1.5;
+.tableContent {
+  margin-right: 40px;
 }
 
+.link {
+  text-decoration: none;
+  margin-top: 20px;
+  margin-left: 45%;
+  background: black;
+  color: #ffa500;
+  padding: 10px;
+  border-radius: 5%;
+  display: flex;
+  width: 100px;
+
+  &:hover {
+    background: darkviolet;
+    cursor: pointer;
+  }
+}

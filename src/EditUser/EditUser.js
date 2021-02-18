@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { url, config } from '../Token/Token';
+import './EditUser.scss'
 
 const EditUser = () => {
 
@@ -42,24 +43,22 @@ const EditUser = () => {
     };
 
     return (
-      <div className='/'>
         <div className='editUser'>
           <div>User {id} </div>
           <input name='name' defaultValue={userData.name}
                  onChange={onTodoChange}
-                 className='name' />
+                 className='editUserInput' />
           <div>Email</div>
           <input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
-                 className='email' />
+                 className='editUserInput' />
           <div>Gender</div>
           <input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
-                 className='gender' />
+                 className='editUserInput' />
           <div>Status</div>
           <input name='status' defaultValue={userData.status} onChange={onTodoChange}
-                 className='status' />
-          <button onClick={() => editSingleUser(userData)} type='button'>Edit</button>
+                 className='editUserInput' />
+          <button className='inputButton' onClick={() => editSingleUser(userData)} type='button'>EDIT</button>
         </div>
-      </div>
     );
   }
 ;

@@ -14,7 +14,6 @@ const Root = () => (
       <nav className='navBar'>
         <Link className='navBarItem' to='/'>Home</Link>
         <Link className='navBarItem' to='/user'>ShowData</Link>
-        <Link className='navBarItem' to='/user/add'>Add User</Link>
         <Link className='navBarItem' to='/post'>Post List</Link>
 
       </nav>

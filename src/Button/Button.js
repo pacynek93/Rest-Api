@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { number, string } from 'prop-types';
+import './Button.scss';
+import 'semantic-ui-css/semantic.min.css';
 
 
 const Button = ({
@@ -8,7 +10,7 @@ const Button = ({
   route,
 }) => (
 
-  <Link  to={{
+  <Link className='ui button' to={{
     pathname: `${route}/${id}`,
     state: []
   }}
