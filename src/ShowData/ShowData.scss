@@ -2,8 +2,14 @@ body {
   box-sizing: border-box;
 }
 
-.tableContent {
+.tableContent .tableHead {
   margin-right: 40px;
+}
+
+.addButtonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .link {

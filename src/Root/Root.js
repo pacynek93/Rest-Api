@@ -6,6 +6,7 @@ import EditUser from '../EditUser/EditUser';
 import AddUser from '../AddUser/AddUser';
 import ShowPosts from '../ShowPosts/ShowPosts';
 import ShowUserInfo from '../ShowUserInfo/ShowUserInfo';
+import EditPost from '../EditPost/EditPost';
 import './Root.scss';
 
 const Root = () => (
@@ -23,6 +24,7 @@ const Root = () => (
         <Route exact path='/user/add' component={AddUser} />
         <Route exact path='/user/:id' component={EditUser} />
         <Route exact path='/post' component={ShowPosts} />
+        <Route exact path='/post/:id' component={EditPost} />
       </Switch>
     </div>
   </BrowserRouter>
