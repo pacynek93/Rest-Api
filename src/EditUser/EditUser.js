@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Input } from 'semantic-ui-react';
 import axios from 'axios';
 import { url, config } from '../Token/Token';
-import './EditUser.scss'
+import './EditUser.scss';
 
 const EditUser = () => {
 
@@ -43,22 +44,23 @@ const EditUser = () => {
     };
 
     return (
-        <div className='editUser'>
-          <div>User {id} </div>
-          <input name='name' defaultValue={userData.name}
-                 onChange={onTodoChange}
-                 className='editUserInput' />
-          <div>Email</div>
-          <input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
-                 className='editUserInput' />
-          <div>Gender</div>
-          <input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
-                 className='editUserInput' />
-          <div>Status</div>
-          <input name='status' defaultValue={userData.status} onChange={onTodoChange}
-                 className='editUserInput' />
-          <button className='inputButton' onClick={() => editSingleUser(userData)} type='button'>EDIT</button>
-        </div>
+      <div className='editUser'>
+        <div>User {id} </div>
+        <Input name='name' defaultValue={userData.name}
+               onChange={onTodoChange}
+        />
+        <div>Email</div>
+        <Input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
+        />
+        <div>Gender</div>
+        <Input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
+        />
+        <div>Status</div>
+        <Input name='status' defaultValue={userData.status} onChange={onTodoChange}
+        />
+        <button className='inputButton' onClick={() => editSingleUser(userData)} type='button'>EDIT
+        </button>
+      </div>
     );
   }
 ;
