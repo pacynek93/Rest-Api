@@ -7,6 +7,7 @@ import AddUser from '../AddUser/AddUser';
 import ShowPosts from '../ShowPosts/ShowPosts';
 import ShowUserInfo from '../ShowUserInfo/ShowUserInfo';
 import EditPost from '../EditPost/EditPost';
+import ShowComments from '../ShowComments/ShowComments';
 import './Root.scss';
 
 const Root = () => (
@@ -16,6 +17,7 @@ const Root = () => (
         <Link className='navBarItem' to='/'>Home</Link>
         <Link className='navBarItem' to='/user'>ShowData</Link>
         <Link className='navBarItem' to='/post'>Post List</Link>
+        <Link className='navBarItem' to='/comments'>User Comments</Link>
 
       </nav>
       <Switch>
@@ -25,6 +27,7 @@ const Root = () => (
         <Route exact path='/user/:id' component={EditUser} />
         <Route exact path='/post' component={ShowPosts} />
         <Route exact path='/post/:id' component={EditPost} />
+        <Route exact path='/comments' component={ShowComments} />
       </Switch>
     </div>
   </BrowserRouter>

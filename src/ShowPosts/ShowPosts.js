@@ -12,7 +12,6 @@ const ShowPosts = () => {
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(postList);
 
   const getPostList = () => {
     axios.get(postsUrl)
@@ -34,6 +33,7 @@ const ShowPosts = () => {
   }, []);
 
   const mapPostData = () => postList.map(item => (
+    <div>
     <table className='ui fixed table' key={item.id}>
       <tbody>
       <tr>
@@ -46,6 +46,7 @@ const ShowPosts = () => {
       </tr>
       </tbody>
     </table>
+    </div>
   ));
 
   return (

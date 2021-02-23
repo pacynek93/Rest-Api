@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Input } from 'semantic-ui-react';
+import { Input, Header } from 'semantic-ui-react';
 import axios from 'axios';
 import { url, config } from '../Token/Token';
 import './EditUser.scss';
@@ -8,6 +8,7 @@ import './EditUser.scss';
 const EditUser = () => {
 
     const [userData, setUserData] = useState([]);
+    const [postData, setPostData] = useState([]);
 
     const {
       id,
@@ -20,8 +21,16 @@ const EditUser = () => {
         });
     };
 
+    const getSinglePost = () => {
+      axios.get(`${url}/${id}/posts`)
+        .then(res =>
+          setPostData(res.data.data));
+    };
+
+
     useEffect(() => {
       getSingleUser();
+      getSinglePost();
     }, []);
 
     const onTodoChange = (e) => {
@@ -43,24 +52,53 @@ const EditUser = () => {
         });
     };
 
+    const mapSingleUserPost = () => postData.map(item => (
+        <table className='ui fixed table' key={item.id}>
+          <tbody>
+          <tr>
+            <td>{item.id}</td>
+            <td>{item.title}</td>
+            <td>{item.body}</td>
+          </tr>
+          </tbody>
+        </table>
+    ));
+
     return (
-      <div className='editUser'>
-        <div>User {id} </div>
-        <Input name='name' defaultValue={userData.name}
-               onChange={onTodoChange}
-        />
-        <div>Email</div>
-        <Input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
-        />
-        <div>Gender</div>
-        <Input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
-        />
-        <div>Status</div>
-        <Input name='status' defaultValue={userData.status} onChange={onTodoChange}
-        />
-        <button className='inputButton' onClick={() => editSingleUser(userData)} type='button'>EDIT
-        </button>
-      </div>
+      <>
+        <div className='editUser'>
+          <div>User {id} </div>
+          <Input name='name' defaultValue={userData.name}
+                 onChange={onTodoChange}
+          />
+          <div>Email</div>
+          <Input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
+          />
+          <div>Gender</div>
+          <Input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
+          />
+          <div>Status</div>
+          <Input name='status' defaultValue={userData.status} onChange={onTodoChange}
+          />
+          <button className='inputButton' onClick={() => editSingleUser(userData)} type='button'>EDIT
+          </button>
+        </div>
+        <div className='lowerContentWrapper'>
+          <Header className='postHeader'>{userData.name} Posts</Header>
+          <ul>
+            <table className='ui fixed table'>
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+            </table>
+            {mapSingleUserPost()}
+          </ul>
+        </div>
+      </>
     );
   }
 ;

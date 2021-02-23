@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Input} from 'semantic-ui-react';
+import {Input, Form} from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { config, postsUrl } from '../Token/Token';
+import './EditPost.scss'
 
 const EditPost = () => {
 
@@ -44,15 +45,19 @@ const EditPost = () => {
   };
 
   return (
-    <div>
+    <div className='editPost'>
       <div>User {id}</div>
       <Input name='id' defaultValue={postData.id} onChange={onTodoChange} />
       <div>User Id</div>
       <Input name='user_id' defaultValue={postData.user_id} onChange={onTodoChange} />
       <div>Title</div>
-      <Input name='title' defaultValue={postData.title} onChange={onTodoChange} />
+      <Form>
+      <Form.TextArea name='title' defaultValue={postData.title} onChange={onTodoChange} />
+      </Form>
       <div>Description</div>
-      <textarea name='body' defaultValue={postData.body} onChange={onTodoChange} />
+      <Form>
+      <Form.TextArea name='body' defaultValue={postData.body} onChange={onTodoChange} />
+      </Form>
       <button className='inputButton' onClick={() => editSinglePost(postData)} type='button'>EDIT
       </button>
     </div>
