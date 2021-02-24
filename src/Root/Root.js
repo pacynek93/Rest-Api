@@ -8,6 +8,9 @@ import ShowPosts from '../ShowPosts/ShowPosts';
 import ShowUserInfo from '../ShowUserInfo/ShowUserInfo';
 import EditPost from '../EditPost/EditPost';
 import ShowComments from '../ShowComments/ShowComments';
+import EditComment from '../EditComment/EditComment';
+import AddPost from '../AddPost/AddPost';
+import AddComment from '../AddComment/AddComment';
 import './Root.scss';
 
 const Root = () => (
@@ -26,8 +29,13 @@ const Root = () => (
         <Route exact path='/user/add' component={AddUser} />
         <Route exact path='/user/:id' component={EditUser} />
         <Route exact path='/post' component={ShowPosts} />
+        <Route exact path='/post/add' component={AddPost} />
         <Route exact path='/post/:id' component={EditPost} />
         <Route exact path='/comments' component={ShowComments} />
+        <Route exact path='/comments/add' component={AddComment} />
+        <Route exact path='/comments/:id' component={EditComment} />
+
+
       </Switch>
     </div>
   </BrowserRouter>

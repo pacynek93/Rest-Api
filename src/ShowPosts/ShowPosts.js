@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Loader } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { postsUrl, config } from '../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
 import Button from '../Button/Button';
 import './ShowPosts.scss'
+
 
 
 const ShowPosts = () => {
@@ -34,13 +36,13 @@ const ShowPosts = () => {
 
   const mapPostData = () => postList.map(item => (
     <div>
-    <table className='ui fixed table' key={item.id}>
+    <table className='ui fixed table'>
       <tbody>
       <tr>
-        <td>{item.id}</td>
-        <td>{item.user_id}</td>
-        <td>{item.title}</td>
-        <td>{item.body}</td>
+        <td data-label='Id'>{item.id}</td>
+        <td data-label='User_Id'>{item.user_id}</td>
+        <td data-label='Title'>{item.title}</td>
+        <td data-label='Body'>{item.body}</td>
         <td><button  className='ui button' type='button' onClick={() => removePost(item.id)}>Delete</button></td>
         <td><Button id={item.id} name={item.name} route='post' /></td>
       </tr>
@@ -49,9 +51,21 @@ const ShowPosts = () => {
     </div>
   ));
 
+  const AddPost = () => (
+    <Link className='ui button' to={{
+      pathname: '/post/add',
+    }}
+    >
+      Add New Post
+    </Link>
+  );
+
   return (
 
     <ul>
+      <div>
+        <div className='addButtonWrapper'>{AddPost()}</div>
+      </div>
       <table className='ui fixed table'>
       <thead>
       <tr>

@@ -67,7 +67,8 @@ const EditUser = () => {
     return (
       <>
         <div className='editUser'>
-          <div>User {id} </div>
+          <Header>User {id} </Header>
+          <div>Name</div>
           <Input name='name' defaultValue={userData.name}
                  onChange={onTodoChange}
           />
