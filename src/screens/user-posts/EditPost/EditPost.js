@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Form, Header } from 'semantic-ui-react';
+import {Form, Header, Button } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { config, postsUrl } from '../../../Token/Token';
 import './EditPost.scss';
+import '../AddPost/AddPost.scss'
 
 const EditPost = () => {
 
@@ -54,8 +55,8 @@ const EditPost = () => {
       <div>Description</div>
       <Form.TextArea name='body' defaultValue={postData.body} onChange={onTodoChange} />
       </Form>
-      <button className='inputButton' onClick={() => editSinglePost(postData)} type='button'>EDIT
-      </button>
+      <Button onClick={() => editSinglePost(postData)} type='button'>EDIT
+      </Button>
     </div>
   );
 };

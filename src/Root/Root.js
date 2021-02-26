@@ -2,15 +2,15 @@ import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Switch } from 'react-router';
 import HomePage from '../screens/HomePage/HomePage';
-import EditUser from '../screens/User List/EditUser/EditUser';
-import AddUser from '../screens/User List/AddUser/AddUser';
-import ShowPosts from '../screens/User Posts/ShowPosts/ShowPosts';
-import ShowData from '../screens/User List/ShowData/ShowData';
-import EditPost from '../screens/User Posts/EditPost/EditPost';
-import ShowComments from '../screens/User Comments/ShowComments/ShowComments';
-import EditComment from '../screens/User Comments/EditComment/EditComment';
-import AddPost from '../screens/User Posts/AddPost/AddPost';
-import AddComment from '../screens/User Comments/AddComment/AddComment';
+import EditUser from '../screens/user-list/EditUser/EditUser';
+import AddUser from '../screens/user-list/AddUser/AddUser';
+import ShowPosts from '../screens/user-posts/ShowPosts/ShowPosts';
+import ShowData from '../screens/user-list/ShowData/ShowData';
+import EditPost from '../screens/user-posts/EditPost/EditPost';
+import ShowComments from '../screens/user-comments/ShowComments/ShowComments';
+import EditComment from '../screens/user-comments/EditComment/EditComment';
+import AddPost from '../screens/user-posts/AddPost/AddPost';
+import AddComment from '../screens/user-comments/AddComment/AddComment';
 import './Root.scss';
 
 const Root = () => (

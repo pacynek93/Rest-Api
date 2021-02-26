@@ -4,7 +4,7 @@ import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { postsUrl, config } from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
-import Button from '../../../components/Button/Button';
+import ButtonLink from '../../../components/Button/Button';
 import './ShowPosts.scss'
 
 
@@ -44,7 +44,7 @@ const ShowPosts = () => {
         <td data-label='Title'>{item.title}</td>
         <td data-label='Body'>{item.body}</td>
         <td><button  className='ui button' type='button' onClick={() => removePost(item.id)}>Delete</button></td>
-        <td><Button id={item.id} name={item.name} route='post' /></td>
+        <td><ButtonLink id={item.id} name={item.name} route='post' /></td>
       </tr>
       </tbody>
     </table>

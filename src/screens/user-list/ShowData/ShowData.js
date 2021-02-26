@@ -4,7 +4,7 @@ import './ShowData.scss';
 import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { url, config } from '../../../Token/Token';
-import Button from '../../../components/Button/Button';
+import ButtonLink from '../../../components/Button/Button';
 
 const ShowData = () => {
   const [data, setData] = useState([]);
@@ -43,7 +43,7 @@ const ShowData = () => {
             <button className='ui button' type='button' onClick={() => removeData(item.id)}>Delete
             </button>
           </td>
-          <td><Button id={item.id} name={item.name} route='user' /></td>
+          <td><ButtonLink id={item.id} name={item.name} route='user' /></td>
         </tr>
         </tbody>
       </table>

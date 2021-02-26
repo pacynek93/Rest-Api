@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import { commentsUrl, config } from '../../../Token/Token';
-import '../../User List/AddUser/AddUser.scss';
+import '../../user-list/AddUser/AddUser.scss';
 
 const AddComment = () => {
 
@@ -43,9 +43,9 @@ const AddComment = () => {
         <Form.TextArea name='body' placeholder='Description' defaultValue={commentData.body}
                     onChange={onTodoChange} />
       </Form>
-      <button type='button' className='inputButtonAdd'
+      <Button type='button'
               onClick={() => postSingleComment(commentData)}>ADD
-      </button>
+      </Button>
     </div>
 
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Input, Header } from 'semantic-ui-react';
+import { Header, Form, Button } from 'semantic-ui-react';
 import axios from 'axios';
 import { url, config } from '../../../Token/Token';
 import './EditUser.scss';
@@ -67,22 +67,24 @@ const EditUser = () => {
     return (
       <>
         <div className='editUser'>
+          <Form>
           <Header>User {id} </Header>
           <div>Name</div>
-          <Input name='name' defaultValue={userData.name}
+          <Form.Input name='name' defaultValue={userData.name}
                  onChange={onTodoChange}
           />
           <div>Email</div>
-          <Input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
+          <Form.Input type='email' name='email' defaultValue={userData.email} onChange={onTodoChange}
           />
           <div>Gender</div>
-          <Input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
+          <Form.Input name='gender' defaultValue={userData.gender} onChange={onTodoChange}
           />
           <div>Status</div>
-          <Input name='status' defaultValue={userData.status} onChange={onTodoChange}
+          <Form.Input name='status' defaultValue={userData.status} onChange={onTodoChange}
           />
-          <button className='inputButton' onClick={() => editSingleUser(userData)} type='button'>EDIT
-          </button>
+          </Form>
+          <Button onClick={() => editSingleUser(userData)} type='button'>EDIT
+          </Button>
         </div>
         <div className='lowerContentWrapper'>
           <Header className='postHeader'>{userData.name} Posts</Header>

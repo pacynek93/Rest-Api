@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import {Header, Form} from 'semantic-ui-react';
+import {Header, Form, Button} from 'semantic-ui-react';
 import { commentsUrl, config } from '../../../Token/Token';
-import '../../User Posts/EditPost/EditPost.scss'
+import '../../user-posts/EditPost/EditPost.scss'
 
 
 const EditComment = () => {
@@ -55,8 +55,8 @@ const EditComment = () => {
     <div>Comment</div>
     <Form.TextArea name='body' defaultValue={commentData.body} onChange={onTodoChange}/>
     </Form>
-    <button className='inputButton' onClick={() => editSingleComment(commentData)} type='button'>EDIT
-    </button>
+    <Button  onClick={() => editSingleComment(commentData)} type='button'>EDIT
+    </Button>
   </div>
   )
 

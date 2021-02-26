@@ -5,7 +5,7 @@ import './Button.scss';
 import 'semantic-ui-css/semantic.min.css';
 
 
-const Button = ({
+const ButtonLink = ({
   id,
   route,
 }) => (
@@ -19,9 +19,9 @@ const Button = ({
   </Link>
 );
 
-Button.propTypes = {
+ButtonLink.propTypes = {
   id: number.isRequired,
   route: string.isRequired,
 };
 
-export default Button;
+export default ButtonLink;

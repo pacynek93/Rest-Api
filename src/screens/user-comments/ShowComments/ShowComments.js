@@ -4,7 +4,7 @@ import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { commentsUrl, config} from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
-import Button from '../../../components/Button/Button';
+import ButtonLink from '../../../components/Button/Button';
 
 
 
@@ -43,7 +43,7 @@ const ShowComments = () => {
           <td>{item.email}</td>
           <td>{item.body}</td>
           <td><button  className='ui button' type='button' onClick={() => removeComment(item.id)}>Delete</button></td>
-          <td><Button id={item.id} name={item.name} route='comments' /></td>
+          <td><ButtonLink id={item.id} name={item.name} route='comments' /></td>
         </tr>
         </tbody>
       </table>
