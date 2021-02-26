@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Input, Header } from 'semantic-ui-react';
 import axios from 'axios';
-import { url, config } from '../Token/Token';
+import { url, config } from '../../../Token/Token';
 import './EditUser.scss';
 
 const EditUser = () => {

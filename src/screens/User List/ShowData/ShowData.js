@@ -3,8 +3,8 @@ import axios from 'axios';
 import './ShowData.scss';
 import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { url, config } from '../Token/Token';
-import Button from '../Button/Button';
+import { url, config } from '../../../Token/Token';
+import Button from '../../../components/Button/Button';
 
 const ShowData = () => {
   const [data, setData] = useState([]);

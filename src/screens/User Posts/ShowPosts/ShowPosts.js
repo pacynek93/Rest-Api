@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { postsUrl, config } from '../Token/Token';
+import { postsUrl, config } from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
-import Button from '../Button/Button';
+import Button from '../../../components/Button/Button';
 import './ShowPosts.scss'
 
 

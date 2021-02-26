@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Input} from 'semantic-ui-react'
-import { url, config } from '../Token/Token';
+import { url, config } from '../../../Token/Token';
 import './AddUser.scss'
 
 

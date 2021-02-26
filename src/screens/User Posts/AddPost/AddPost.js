@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {Input, Form} from 'semantic-ui-react';
-import {postsUrl, config} from '../Token/Token';
+import {Form} from 'semantic-ui-react';
+import {postsUrl, config} from '../../../Token/Token';
 
 const AddPost = () => {
 
@@ -30,12 +30,14 @@ const AddPost = () => {
   return (
     <div>
       <div className='editPost'>
+        <Form>
         <div>User Id</div>
-        <Input name='user_id' placeholder='User Id'  defaultValue={postData.email} onChange={onTodoChange}/>
+        <Form.Input name='user_id' placeholder='User Id'  defaultValue={postData.email} onChange={onTodoChange}/>
         <div>Title</div>
         <Form.TextArea name='title' placeholder='Title'  defaultValue={postData.gender} onChange={onTodoChange}/>
         <div>Description</div>
         <Form.TextArea name='body' placeholder='Description' defaultValue={postData.status} onChange={onTodoChange}/>
+        </Form>
         <button type='button' className='inputButtonAdd' onClick={() => postSinglePost(postData)}>ADD</button>
       </div>
     </div>
