@@ -4,7 +4,7 @@ import { Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { postsUrl, config } from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
-import ButtonLink from '../../../components/Button/Button';
+import ButtonLink from '../../../components/ButtonLink/ButtonLink';
 import './ShowPosts.scss'
 
 
@@ -35,7 +35,7 @@ const ShowPosts = () => {
   }, []);
 
   const mapPostData = () => postList.map(item => (
-    <div>
+    <div key={item.id}>
     <table className='ui fixed table'>
       <tbody>
       <tr>

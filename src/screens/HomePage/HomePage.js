@@ -1,9 +1,7 @@
 import React from 'react';
 import { Container, Header, Message } from 'semantic-ui-react';
 
-const HomePage = () => {
-  console.log('lol');
-  return (
+const HomePage = () => (
     <>
       <Container>
         <Message>
@@ -15,11 +13,10 @@ const HomePage = () => {
       </Container>
       <Container>
         <Message>
-          <a href='https://gorest.co.in'>Click Here to visit their Page</a>
+          <a target="blank" href='https://gorest.co.in'>Click Here to visit their Page</a>
         </Message>
       </Container>
     </>
-  );
-};
+);
 
 export default HomePage;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { number, string } from 'prop-types';
-import './Button.scss';
+import './ButtonLink.scss';
 import 'semantic-ui-css/semantic.min.css';
 
 
