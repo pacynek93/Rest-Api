@@ -11,7 +11,10 @@ import ShowComments from '../screens/user-comments/ShowComments/ShowComments';
 import EditComment from '../screens/user-comments/EditComment/EditComment';
 import AddPost from '../screens/user-posts/AddPost/AddPost';
 import AddComment from '../screens/user-comments/AddComment/AddComment';
+import ShowTodos from '../screens/user-todos/ShowTodos/ShowTodos';
+import EditTodos from '../screens/user-todos/EditTodos/EditTodos';
 import './Root.scss';
+
 
 const Root = () => (
   <BrowserRouter>
@@ -21,6 +24,7 @@ const Root = () => (
         <Link className='navBarItem' to='/user'>User List</Link>
         <Link className='navBarItem' to='/post'>Post List</Link>
         <Link className='navBarItem' to='/comments'>User Comments</Link>
+        <Link className='navBarItem' to='/todos'>User Todos</Link>
 
       </nav>
       <Switch>
@@ -34,6 +38,8 @@ const Root = () => (
         <Route exact path='/comments' component={ShowComments} />
         <Route exact path='/comments/add' component={AddComment} />
         <Route exact path='/comments/:id' component={EditComment} />
+        <Route exact path='/todos' component={ShowTodos} />
+        <Route exact path='/todos/:id' component={EditTodos} />
 
 
       </Switch>

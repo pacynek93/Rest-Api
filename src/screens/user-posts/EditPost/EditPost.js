@@ -4,13 +4,12 @@ import {Form, Header, Button } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { config, postsUrl } from '../../../Token/Token';
 import './EditPost.scss';
-import '../AddPost/AddPost.scss'
+import '../AddPost/AddPost.scss';
 
 const EditPost = () => {
 
   const [postData, setPostData] = useState([]);
-
-  console.log(postData);
+  const [singleComment, setSingleComment] = useState([]);
 
   const { id } = useParams();
 
@@ -21,8 +20,18 @@ const EditPost = () => {
       );
   };
 
+  const getSingleComment = () => {
+    axios.get(`${postsUrl}/${id}/comments`)
+      .then(res =>
+      setSingleComment(res.data.data)
+      );
+  }
+
+  console.log(singleComment);
+
   useEffect(() => {
     getSinglePost();
+    getSingleComment();
   }, []);
 
   const onTodoChange = (e) => {
@@ -37,6 +46,20 @@ const EditPost = () => {
     ));
   };
 
+
+  const mapSingleComment = () => singleComment.map (item => (
+    <table className='ui fixed table' key={item.id}>
+      <tbody>
+      <tr>
+        <td>{item.id}</td>
+        <td>{item.name}</td>
+        <td>{item.email}</td>
+        <td>{item.body}</td>
+      </tr>
+      </tbody>
+    </table>
+  ))
+
   const editSinglePost = (item) => {
     axios.put(`${postsUrl}/${id}`, { ...item }, config)
       .then(() => {
@@ -45,6 +68,7 @@ const EditPost = () => {
   };
 
   return (
+    <>
     <div className='editPost'>
       <Form>
       <Header>User {id}</Header>
@@ -58,6 +82,21 @@ const EditPost = () => {
       <Button onClick={() => editSinglePost(postData)} type='button'>EDIT
       </Button>
     </div>
+    <div>
+      <Header className='postHeader'> Comments </Header>
+      <table className='ui fixed table'>
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+      </table>
+      {mapSingleComment()}
+    </div>
+    </>
   );
 };
 

@@ -7,3 +7,5 @@ export const url = 'https://gorest.co.in/public-api/users';
 export const postsUrl = 'https://gorest.co.in/public-api/posts';
 
 export const commentsUrl = 'https://gorest.co.in/public-api/comments';
+
+export const todoUrl = 'https://gorest.co.in/public-api/todos';
