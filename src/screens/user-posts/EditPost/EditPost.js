@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Form, Header, Button } from 'semantic-ui-react';
+import { Form, Header, Button } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { config, postsUrl } from '../../../Token/Token';
 import './EditPost.scss';
@@ -23,11 +23,9 @@ const EditPost = () => {
   const getSingleComment = () => {
     axios.get(`${postsUrl}/${id}/comments`)
       .then(res =>
-      setSingleComment(res.data.data)
+        setSingleComment(res.data.data),
       );
-  }
-
-  console.log(singleComment);
+  };
 
   useEffect(() => {
     getSinglePost();
@@ -47,7 +45,7 @@ const EditPost = () => {
   };
 
 
-  const mapSingleComment = () => singleComment.map (item => (
+  const mapSingleComment = () => singleComment.map(item => (
     <table className='ui fixed table' key={item.id}>
       <tbody>
       <tr>
@@ -58,7 +56,7 @@ const EditPost = () => {
       </tr>
       </tbody>
     </table>
-  ))
+  ));
 
   const editSinglePost = (item) => {
     axios.put(`${postsUrl}/${id}`, { ...item }, config)
@@ -67,35 +65,37 @@ const EditPost = () => {
       });
   };
 
+
   return (
     <>
-    <div className='editPost'>
-      <Form>
-      <Header>User {id}</Header>
-      <div>User Id</div>
-      <Form.Input name='user_id' defaultValue={postData.user_id} onChange={onTodoChange} />
-      <div>Title</div>
-      <Form.TextArea className='textAreaStyles' name='title' defaultValue={postData.title} onChange={onTodoChange} />
-      <div>Description</div>
-      <Form.TextArea name='body' defaultValue={postData.body} onChange={onTodoChange} />
-      </Form>
-      <Button onClick={() => editSinglePost(postData)} type='button'>EDIT
-      </Button>
-    </div>
-    <div>
-      <Header className='postHeader'> Comments </Header>
-      <table className='ui fixed table'>
-        <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Description</th>
-        </tr>
-        </thead>
-      </table>
-      {mapSingleComment()}
-    </div>
+      <div className='editPost'>
+        <Form>
+          <Header>User {id}</Header>
+          <div>User Id</div>
+          <Form.Input name='user_id' defaultValue={postData.user_id} onChange={onTodoChange} />
+          <div>Title</div>
+          <Form.TextArea className='textAreaStyles' name='title' defaultValue={postData.title}
+                         onChange={onTodoChange} />
+          <div>Description</div>
+          <Form.TextArea name='body' defaultValue={postData.body} onChange={onTodoChange} />
+        </Form>
+        <Button onClick={() => editSinglePost(postData)} type='button'>EDIT
+        </Button>
+      </div>
+      <div>
+        <Header className='postHeader'> Comments </Header>
+        <table className='ui fixed table'>
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+        </table>
+        {mapSingleComment()}
+      </div>
     </>
   );
 };

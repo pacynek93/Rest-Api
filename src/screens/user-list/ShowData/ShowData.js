@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ShowData.scss';
-import { Loader, Pagination } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { Loader, Pagination } from 'semantic-ui-react';
 import { url, config } from '../../../Token/Token';
 import ButtonLink from '../../../components/ButtonLink/ButtonLink';
 
@@ -69,7 +69,6 @@ const ShowData = () => {
     </Link>
   );
 
-
   return (
     <>
       <div>
@@ -90,9 +89,12 @@ const ShowData = () => {
           </table>
           {mapData()}
         </ul>
-        <Loader active={loading} />
+        <Loader active={loading} size='massive' />
       </div>
-      <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getData(pageData.activePage)} />
+      <div>
+        <Pagination totalPages={pageCount}
+                    onPageChange={(event, pageData) => getData(pageData.activePage)} />
+        </div>
     </>
   );
 };

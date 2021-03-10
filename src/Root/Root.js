@@ -40,8 +40,6 @@ const Root = () => (
         <Route exact path='/comments/:id' component={EditComment} />
         <Route exact path='/todos' component={ShowTodos} />
         <Route exact path='/todos/:id' component={EditTodos} />
-
-
       </Switch>
     </div>
   </BrowserRouter>
