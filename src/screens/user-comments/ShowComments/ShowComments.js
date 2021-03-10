@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Pagination } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { commentsUrl, config } from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
@@ -10,17 +10,26 @@ const ShowComments = () => {
 
   const [commentsList, setCommentsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(1);
 
-  const getCommentsList = () => {
-    axios.get(commentsUrl)
+  const getCommentsList = (item) => {
+    axios.get(`${ commentsUrl }//?page=${item}`)
       .then(res => {
         setCommentsList(res.data.data);
         setLoading(false);
       });
   };
 
+  const getPages = () => {
+    axios.get(commentsUrl)
+      .then(res => (
+        setPageCount(res.data.meta.pagination.pages)
+      ));
+  };
+
   useEffect(() => {
     getCommentsList();
+    getPages();
   }, []);
 
   const removeComment = (id) => {
@@ -81,6 +90,7 @@ const ShowComments = () => {
         {mapCommentsData()}
         <Loader active={loading} />
       </ul>
+      <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getCommentsList(pageData.activePage)} />
     </>
 
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Pagination } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { postsUrl, config } from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
@@ -13,14 +13,22 @@ const ShowPosts = () => {
 
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(1);
 
 
-  const getPostList = () => {
-    axios.get(postsUrl)
+  const getPostList = (item) => {
+    axios.get(`${postsUrl}/?page=${item}`)
       .then(response => {
         setPostList(response.data.data);
         setLoading(false);
       });
+  };
+
+  const getPages = () => {
+    axios.get(postsUrl)
+      .then(res => (
+        setPageCount(res.data.meta.pagination.pages)
+      ));
   };
 
   const removePost = (id) => {
@@ -32,6 +40,7 @@ const ShowPosts = () => {
 
   useEffect(() => {
     getPostList();
+    getPages();
   }, []);
 
   const mapPostData = () => postList.map(item => (
@@ -61,7 +70,7 @@ const ShowPosts = () => {
   );
 
   return (
-
+<>
     <ul>
       <div>
         <div className='addButtonWrapper'>{AddPost()}</div>
@@ -79,8 +88,10 @@ const ShowPosts = () => {
       </thead>
       </table>
       {mapPostData()}
-      <Loader active={loading} />
     </ul>
+  <Loader active={loading} />
+  <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getPostList(pageData.activePage)} />
+</>
   );
 };
 

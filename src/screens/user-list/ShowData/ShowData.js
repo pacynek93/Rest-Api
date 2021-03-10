@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ShowData.scss';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Pagination } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { url, config } from '../../../Token/Token';
 import ButtonLink from '../../../components/ButtonLink/ButtonLink';
@@ -9,13 +9,22 @@ import ButtonLink from '../../../components/ButtonLink/ButtonLink';
 const ShowData = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(1);
 
-  const getData = () => {
-    axios.get(url)
+
+  const getData = (item) => {
+    axios.get(`${url}/?page=${item}`)
       .then(res => {
         setData(res.data.data);
         setLoading(false);
       });
+  };
+
+  const getPages = () => {
+    axios.get(url)
+      .then(res => (
+        setPageCount(res.data.meta.pagination.pages)
+      ));
   };
 
   const removeData = (id) => {
@@ -27,6 +36,7 @@ const ShowData = () => {
 
   useEffect(() => {
     getData();
+    getPages();
   }, []);
 
   const mapData = () => data.map(item => (
@@ -59,6 +69,7 @@ const ShowData = () => {
     </Link>
   );
 
+
   return (
     <>
       <div>
@@ -81,6 +92,7 @@ const ShowData = () => {
         </ul>
         <Loader active={loading} />
       </div>
+      <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getData(pageData.activePage)} />
     </>
   );
 };

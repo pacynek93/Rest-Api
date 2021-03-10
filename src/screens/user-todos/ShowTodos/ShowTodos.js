@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Loader, Pagination } from 'semantic-ui-react';
 import { config, todoUrl } from '../../../Token/Token';
 import 'semantic-ui-css/semantic.min.css';
 import ButtonLink from '../../../components/ButtonLink/ButtonLink';
 
 
+
 const ShowTodos = () => {
 
   const [userTodos, setUserTodos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(1);
 
-  const getTodoData = () => {
-    axios.get(todoUrl)
-      .then(res =>
-        setUserTodos(res.data.data),
+  const getTodoData = (item) => {
+    axios.get(`${todoUrl}//?page=${item}`)
+      .then(res => {
+          setUserTodos(res.data.data);
+            setLoading(false);
+        }
       );
+  };
+
+  const getPages = () => {
+    axios.get(todoUrl)
+      .then(res => (
+        setPageCount(res.data.meta.pagination.pages)
+      ));
   };
 
   const removeTodo = (id) => {
@@ -25,6 +38,7 @@ const ShowTodos = () => {
 
   useEffect(() => {
     getTodoData();
+    getPages();
   }, []);
 
   const mapTodoData = () => userTodos.map(item => (
@@ -62,6 +76,8 @@ const ShowTodos = () => {
         </table>
         {mapTodoData()}
       </ul>
+      <Loader active={loading} />
+      <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getTodoData(pageData.activePage)} />
     </>
   );
 };
