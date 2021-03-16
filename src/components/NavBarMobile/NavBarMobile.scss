@@ -1,5 +1,6 @@
 .navBarIcon {
   display: none;
+  cursor: pointer;
 }
 
 .navBarMobile {
@@ -12,11 +13,6 @@
     padding: 10px;
     text-decoration: none;
 
-    &:hover {
-      background: darkviolet;
-      cursor: pointer;
-      border-radius: 5%;
-    }
   }
 }
 
@@ -28,11 +24,6 @@
     display: block;
     color: #ffa500;
 
-    &:hover {
-      background: darkviolet;
-      cursor: pointer;
-      border-radius: 5%;
-    }
   }
   .navBarMobileItem {
     display: none;
