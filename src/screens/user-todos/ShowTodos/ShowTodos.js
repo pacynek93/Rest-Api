@@ -76,7 +76,7 @@ const ShowTodos = () => {
         </table>
         {mapTodoData()}
       </ul>
-      <Loader active={loading} />
+      <Loader active={loading} size='massive' />
       <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getTodoData(pageData.activePage)} />
     </>
   );

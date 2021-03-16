@@ -89,7 +89,7 @@ const ShowPosts = () => {
       </table>
       {mapPostData()}
     </ul>
-  <Loader active={loading} />
+  <Loader active={loading} size='massive' />
   <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getPostList(pageData.activePage)} />
 </>
   );

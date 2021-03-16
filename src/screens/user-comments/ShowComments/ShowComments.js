@@ -88,7 +88,7 @@ const ShowComments = () => {
           </thead>
         </table>
         {mapCommentsData()}
-        <Loader active={loading} size='large' />
+        <Loader active={loading} size='massive' />
       </ul>
       <Pagination className='pagination' totalPages={pageCount} onPageChange={(event, pageData) =>getCommentsList(pageData.activePage)} />
     </>
