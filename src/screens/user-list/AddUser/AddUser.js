@@ -9,10 +9,8 @@ const AddUser = () => {
   const [userData, setUserData] = useState([]);
 
   const onTodoChange = (e) => {
-    /* eslint-disable */
-    const name = e.target.name;
-    const value = e.target.value;
-    /* eslint-enable */
+    const name = e?.target?.name;
+    const value = e?.target?.value;
     setUserData(prevState => ({
         ...prevState,
         [name]: value,
@@ -20,14 +18,14 @@ const AddUser = () => {
     ));
   };
 
-  const postSingleUser = (item) => {
+    const postSingleUser = (item) => {
     axios.post(`${url}`, { ...item }, config)
       .then(res => {
         console.log(res.data.data);
+        console.log(userData);
       });
   };
 
-  console.log(userData);
 
   return (
     <div>
@@ -39,10 +37,11 @@ const AddUser = () => {
           <div>Email</div>
           <Form.Input name='email' placeholder='Email' defaultValue={userData.email}
                       onChange={onTodoChange} />
-          <Form.Input name='gender' placeholder='Gender' defaultValue={userData.gender}
+            <div>Gender</div>
+          <Form.Input name='gender' placeholder='Can be Male of Female' defaultValue={userData.gender}
                       onChange={onTodoChange} />
           <div>Status</div>
-          <Form.Input name='status' placeholder='Status' defaultValue={userData.status}
+           <Form.Input name='status' placeholder='Can be Active or Inactive' defaultValue={userData.status}
                       onChange={onTodoChange} />
         </Form>
         <Button type='button' onClick={() => postSingleUser(userData)}>ADD</Button>

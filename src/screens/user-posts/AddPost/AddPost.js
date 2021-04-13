@@ -9,10 +9,8 @@ const AddPost = () => {
   const [postData, setPostData] = useState([]);
 
   const onTodoChange = (e) => {
-    /* eslint-disable */
-    const name = e.target.name;
-    const value = e.target.value;
-    /* eslint-enable */
+    const name = e?.target?.name;
+    const value = e?.target?.value;
     setPostData(prevState => ({
         ...prevState,
         [name]: value,
@@ -32,10 +30,10 @@ const AddPost = () => {
       <div className='editPost'>
         <Form className='form'>
           <div>User Id</div>
-          <Form.Input name='user_id' placeholder='User Id' defaultValue={postData.email}
+          <Form.Input name='id' placeholder='User Id' defaultValue={postData.id}
                       onChange={onTodoChange} />
           <div>Title</div>
-          <Form.TextArea name='title' placeholder='Title' defaultValue={postData.gender}
+          <Form.TextArea name='title' placeholder='Title' defaultValue={postData.title}
                          onChange={onTodoChange} />
           <div>Description</div>
           <Form.TextArea name='body' placeholder='Description' defaultValue={postData.status}
